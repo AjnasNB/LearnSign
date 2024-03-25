@@ -5,21 +5,23 @@ import React from "react";
 import GameTemplate from "../components/GameTemplate";
 import { letterBank } from "../constants/wordBank";
 
-function Baseline() {
+function AllClasses() {
+  const wordBank = letterBank;
+  wordBank.splice(9, 1); // remove j
+  wordBank.splice(24, 1); // remove z
   return (
     <GameTemplate
-      id="baseline"
-      title="Baseline Model"
+      id="extended"
+      title="Alphabet Game"
       description={
-        "LearnSign is a Sign Language Alphabet game based on an AI object detection model. This model was trained on 4 classes, 'A', 'B', 'C', and 'D' to minimise training loss."
+        "This model was trained on 24 alphabets for a more holistic representation of a sign language alphabet game. The letters 'J' and 'Z' were excluded as they are dynamic signs that involve motion."
       }
-      wordBank={letterBank.slice(0, 4)}
+      wordBank={wordBank}
       modelUrl={
-        "https://raw.githubusercontent.com/ngzhili/LearnSign/master/ReactCV/src/tfjs_model_mobilenetv2_fpnlite_ABCD_best/model.json"
+        "https://raw.githubusercontent.com/ngzhili/LearnSign/master/ReactCV/src/tfjs_model_mobilenetv2_fpnlite_all_classes_v2/model.json"
       }
-      isBaseline={true}
     />
   );
 }
 
-export default Baseline;
+export default AllClasses;
