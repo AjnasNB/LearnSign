@@ -18,7 +18,7 @@ function AllClasses() {
       }
       wordBank={wordBank}
       modelUrl={
-        "../fun/model.json"
+        "https://raw.githubusercontent.com/AjnasNB/LearnSign/main/ReactCV/src/fun/model.json"
       }
     />
   );

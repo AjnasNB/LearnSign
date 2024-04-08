@@ -2,29 +2,25 @@ import "../App.css";
 
 // Import dependencies
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import Webcam from "react-webcam";
 import styled from "styled-components";
-import backgroundImg from "../assets/images/background.jpg";
-import { Modal } from "@material-ui/core";
-import { CircularProgress, Slider, Switch } from "@mui/material";
+import { Modal, CircularProgress, Slider, Switch } from "@mui/material";
 import * as tf from "@tensorflow/tfjs";
-
-import aslImg from "../../src/assets/images/ASL_Alphabet.png";
-import boyImg from "../../src/assets/images/boy-hand.png";
-import tick from "../../src/assets/images/checked.png";
-import studyIcon from "../../src/assets/images/notebook.png";
 import DSButton from "../components/DSButton";
 import Footer from "../components/Footer";
 import TextBubble from "../components/TextBubble";
 import { drawRect } from "../utilities";
+import aslImg from "../../src/assets/images/ASL_Alphabet.png";
+import boyImg from "../../src/assets/images/boy-hand.png";
+import tick from "../../src/assets/images/checked.png";
+import studyIcon from "../../src/assets/images/notebook.png";
+import Webcam from "react-webcam";
 
 // Styled Components
 const StyledWrapper = styled.div`
-  color: rgb(40, 44, 52);
-  background-image: url(${backgroundImg});
-  background-size: cover;
+  background-color: #ffffff; /* White background with a soft shadow */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   height: auto;
-  padding: 20px 0 0 0;
+  padding: 20px;
 `;
 const StyledAppContainer = styled.div`
   min-height: 100vh;
@@ -578,7 +574,7 @@ function GameTemplate({
   };
 
   return (
-    <StyledWrapper backgroundImg={backgroundImg}>
+    <StyledWrapper >
       <StyledAppContainer>
         <StyledAppBar>
           <StyledIntroContainer>

@@ -7,13 +7,13 @@ import menuIcon from "../../src/assets/icons/menu.png";
 import closeIcon from "../../src/assets/icons/close.png";
 
 const StyledAppBar = styled.div`
-  position: relative; /* Changed from absolute to relative for demo */
+  position: relative;
   display: flex;
-  justify-content: space-between; /* Adjusted for better spacing */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 20px;
-  background-color: #f0f8ff; /* Light background color for visibility */
+  background-color: #f0f8ff;
 `;
 
 const LogoContainer = styled.div`
@@ -22,7 +22,7 @@ const LogoContainer = styled.div`
 `;
 
 const StyledLogo = styled.img`
-  width: 140px;
+  width: 80px; /* Adjusted for a better fit */
 `;
 
 const StyledText = styled.span`
@@ -31,7 +31,7 @@ const StyledText = styled.span`
   color: #334589;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-left: 10px; /* Added for spacing between logo and text */
+  margin-left: 10px;
 
   @media only screen and (max-width: 768px) {
     font-size: 14px;
@@ -41,6 +41,11 @@ const StyledText = styled.span`
 const StyledNav = styled.nav`
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    display: ${(props) => (props.show ? "flex" : "none")};
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -53,21 +58,22 @@ const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+
+  @media only screen and (max-width: 768px) {
+    padding: 10px 0; /* Adjust spacing for mobile view */
+  }
 `;
 
 const MobileMenuIcon = styled.img`
   width: 30px;
   height: 30px;
   cursor: pointer;
-  display: none; /* Hide by default, only show in mobile view */
-  margin-right: 20px; /* Added for spacing between links and icon */
+  display: none;
+  margin-right: 20px;
   @media only screen and (max-width: 768px) {
-    display: block; /* Show icon on mobile */
+    display: block;
   }
 `;
-
-
-
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,12 +85,11 @@ function NavBar() {
         <StyledLogo src={learnSignLogo} alt="LearnSign Logo" />
         <StyledText>Learnsign</StyledText>
       </LogoContainer>
-      <StyledNav>
+      <MobileMenuIcon src={menuOpen ? closeIcon : menuIcon} alt="Menu" onClick={toggleMenu} />
+      <StyledNav show={menuOpen}>
         <StyledLink to="/wordgame">WordGame</StyledLink>
         <StyledLink to="/baseline">AlphabetGame</StyledLink>
-        <MobileMenuIcon src={menuOpen ? closeIcon : menuIcon} alt="Menu" onClick={toggleMenu} />
       </StyledNav>
-      
     </StyledAppBar>
   );
 }
