@@ -18,7 +18,7 @@ function AllClasses() {
       }
       wordBank={wordBank}
       modelUrl={
-        "https://raw.githubusercontent.com/AjnasNB/LearnSign/main/ReactCV/src/fun/model.json"
+        "../tfjs_model_mobilenetv2_fpnlite_ABCD_best/model.json"
       }
     />
   );
